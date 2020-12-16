@@ -32,13 +32,12 @@ if(age === true) {
 
 
 // FUNCTION TO ADD TWO NUMBERS
-var inputA = readlineSync.questionInt();
 function add(a, b=100) {
   var c = a + b
   console.log('OUTPUT ' + c)
 }
 
-
+var inputA = readlineSync.questionInt();
 add(inputA)
 
 
@@ -60,3 +59,11 @@ function checkAnswer(option, answer) {
   }
 }
 checkAnswer(rashu.items[index], rashu.answer)
+
+
+
+// PRINT YOUR NAME FIVE TIMES
+for(i=0; i<=6; i++) {
+  var pressAnyKey = readlineSync.keyInPause('PRESS ANY KEY TO CONTINUE...')
+  console.log(i + ' ' + username)
+}
