@@ -1,7 +1,4 @@
-# readline-sync
+# PATTERN PRINT
 
-- keyInYN
-- keyInPause
-- question
-- questionInt
-- keyInSelect, {cancel: false}
+- keyInPause -> readline-sync
+- Math.abs() --> RETURN ABSOLUTE VALUE OF A NUMBER

@@ -1,69 +1,55 @@
+// HOMEWORK
 var readlineSync = require('readline-sync')
 var chalk = require('chalk')
 
-var score = 0;
+console.log(chalk.bgMagenta('PRESS A KEY AND PRESS ENTER TO GET YOUR PATTERN'))
+var userPattern = readlineSync.promptCL()
+console.log(userPattern)
 
-// input
-var username = readlineSync.question(chalk.green('What is you name? '));
-
-
-// processing
-var usernameUpperCase = username.toUpperCase()
-var welcomeMsg = chalk.bgGreen('HELLO ' + usernameUpperCase)
-
-// output
-console.log(welcomeMsg)
-
-// PRINT WRITE OR WRONG IF GREATER THAN 18
-// input 
-var age = readlineSync.keyInYN('Are you greater than 18 years old? ')
-
-// processing 
-if(age === true) {
-  score = score + 1
-  // output
-  console.log('GOOD! YOU ARE MATURE NOW')
-  console.log('Your score is ' + score)
-} else {
-  // output
-  console.log('THIS IS NOT FOR KIDS, AS OF NOW')
-  console.log('your score ' + score)
-}
-
-
-// FUNCTION TO ADD TWO NUMBERS
-function add(a, b=100) {
-  var c = a + b
-  console.log('OUTPUT ' + c)
-}
-
-var inputA = readlineSync.questionInt();
-add(inputA)
-
-
-
-// FUNCTION TO CHECK ANSWER
-var rashu = {
-  "question": "WHAT RASHU LOVES TO EAT? ",
-  "items": ['ata', 'dal', 'tabdi'],
-  "answer": "tabdi"
-}
-
-var index = readlineSync.keyInSelect(rashu.items, rashu.question, {cancel: false})
-function checkAnswer(option, answer) {
-  if(option === answer) {
-    score = score + 1
-    console.log('I\'m loving it...', score)
-  } else {
-    console.log('SCORE MAU LE GYA...', score)
+function runPattern() {
+  // RIGHT TRIANGLE PATTERN
+  console.log('RIGH TRIANGLE PATTERN')
+  for(i=0; i<=5; i++) {
+    var pattern = userPattern[0].repeat(i)
+    console.log(pattern)
   }
+  console.log('\n')
+
+  // SQUARE PATTERN
+  console.log('SQUARE PATTERN')
+  for(i=0; i<=5; i++) {
+    var pattern = userPattern[0].repeat(5)
+    console.log(pattern)
+  }
+  console.log('\n')
+
+  // LEFT TRIANGLE PATTERN
+  console.log('LEFT TRIANGLE PATTERN')
+  for(i=0; i<=5; i++) {
+    var space = ' '.repeat(5-i);
+    var pattern = userPattern[0].repeat(i)
+    console.log( space + pattern)
+  }
+  console.log('\n')
+
+  // DOWNWARD TRIANGLE PATTERN
+   console.log('DOWNWARD TRIANGLE PATTERN')
+  for(i=5; i>=0; i--) {
+    var pattern = userPattern[0].repeat(i)
+    console.log(pattern)
+  }
+  console.log('\n')
+
+  // DOWNWARD LEFT TRIANGLE PATTERN
+  console.log('DOWNWARD LEFT TRIANGLE PATTERN')
+  for(i=5; i>=0; i--) {
+    var space = ' '.repeat(Math.abs(i-5));
+    var pattern = userPattern[0].repeat(i)
+    console.log( space + pattern)
+  }
+  console.log('\n')
+
 }
-checkAnswer(rashu.items[index], rashu.answer)
+runPattern()
 
 
-
-// PRINT YOUR NAME FIVE TIMES
-for(i=0; i<=6; i++) {
-  var pressAnyKey = readlineSync.keyInPause('PRESS ANY KEY TO CONTINUE...')
-  console.log(i + ' ' + username)
-}
